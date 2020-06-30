@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["BotekoGO/BotekoGO.csproj", "BotekoGO/"]
-RUN dotnet restore "BotekoGO/BotekoGO.csproj"
+COPY ["BotekoGO/BotekoGO/BotekoGO.csproj", "BotekoGO/"]
+RUN dotnet restore "BotekoGO/BotekoGO/BotekoGO.csproj"
 COPY . .
 WORKDIR "/src/BotekoGO"
 RUN dotnet build "BotekoGO.csproj" -c Release -o /app/build
