@@ -2,8 +2,8 @@
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ButekoGOAPP.Services;
 using ButekoGOAPP.Views;
+//using ButekoGOAPP.Services;
 
 namespace ButekoGOAPP
 {
@@ -21,9 +21,13 @@ namespace ButekoGOAPP
             InitializeComponent();
 
             if (UseMockDataStore)
-                DependencyService.Register<MockDataStore>();
+            {
+                // DependencyService.Register<MockDataStore>();
+            }
             else
-                DependencyService.Register<AzureDataStore>();
+            {
+                // DependencyService.Register<AzureDataStore>();
+            }
             MainPage = new AppShell();
         }
 
