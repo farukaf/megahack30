@@ -19,11 +19,11 @@
                 <Setter Property="Shell.ForegroundColor" Value="#A0141F" />
                 <Setter Property="Shell.TitleColor" Value="#A0141F" />
                 <Setter Property="Shell.DisabledColor" Value="#A0141F99" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#FECC15" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="#A0141F"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="#FECC15"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#A0141F"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#FECC15"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
@@ -31,16 +31,16 @@
 
     <!-- Your Pages -->
     <TabBar>
-        <Tab Icon="IconPerfil.png">
+        <Tab Title="Perfil" Icon="IconPerfil.png">
             <ShellContent ContentTemplate="{DataTemplate local:Perfil}" />
         </Tab>
-        <Tab Icon="IconMap.png">
+        <Tab Title="Butekos" Icon="IconMap.png">
             <ShellContent ContentTemplate="{DataTemplate local:Map}" />
         </Tab>
-        <Tab Icon="IconAlarm.png">
+        <Tab Title="Alarmes" Icon="IconAlarm.png">
             <ShellContent ContentTemplate="{DataTemplate local:Alerts}" />
         </Tab>
-        <Tab Icon="IconCupons.png">
+        <Tab Title="Cupons" Icon="IconCupons.png">
             <ShellContent ContentTemplate="{DataTemplate local:Cupons}" />
         </Tab>
     </TabBar>
