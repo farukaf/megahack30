@@ -4,13 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ButekoGOAPP.Views.LoginPage">
+             x:Class="ButekoGOAPP.Views.LoginPage"
+             BackgroundImageSource="background">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Sign-in" Command="{Binding LoginCommand}"></Button>
+            <StackLayout>
+                <Image Source="logo"></Image>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Button ImageSource="gGoogle" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding LoginCommand}" Margin="5"></Button>
+                <Button ImageSource="fFacebook" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding LoginCommand}" Margin="5"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

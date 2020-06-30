@@ -31,7 +31,7 @@
 
     <!-- Your Pages -->
     <TabBar>
-        <Tab Icon="IconPerfil.png">
+        <Tab Icon="IconPerfil.png">            
             <ShellContent ContentTemplate="{DataTemplate local:Perfil}" />
         </Tab>
         <Tab Icon="IconMap.png">
