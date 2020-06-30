@@ -28,11 +28,15 @@ namespace ButekoGOAPP
             {
                 // DependencyService.Register<AzureDataStore>();
             }
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
         {
+            MessagingCenter.Subscribe<Models.Login>(this, "LoginSuccess", (x) =>
+            {
+                MainPage = new AppShell();
+            });
         }
 
         protected override void OnSleep()
