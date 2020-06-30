@@ -11,12 +11,18 @@ namespace ButekoGOAPP.ViewModels
     {        
         public LoginViewModel()
         {            
-            this.LoginCommand = new Command(() =>
+            this.GoogleLoginCommand = new Command(() =>
+            {
+                MessagingCenter.Send<Models.Login>(new Models.Login(), "LoginSuccess");
+            });
+
+            this.FacebookLoginCommad = new Command(() =>
             {
                 MessagingCenter.Send<Models.Login>(new Models.Login(), "LoginSuccess");
             });
         }
 
-        public ICommand LoginCommand { get; set; }
+        public ICommand GoogleLoginCommand { get; set; }
+        public ICommand FacebookLoginCommad { get; set; }
     }
 }
