@@ -12,8 +12,8 @@
                 <Image Source="logo"></Image>
             </StackLayout>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                <Button ImageSource="gGoogle" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding LoginCommand}" Margin="5"></Button>
-                <Button ImageSource="fFacebook" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding LoginCommand}" Margin="5"></Button>
+                <Button ImageSource="gGoogle" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding GoogleLoginCommand}" Margin="5"></Button>
+                <Button ImageSource="fFacebook" Text="Sign-in" WidthRequest="200" HeightRequest="60" BackgroundColor="White" Command="{Binding FacebookLoginCommad}" Margin="5"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
