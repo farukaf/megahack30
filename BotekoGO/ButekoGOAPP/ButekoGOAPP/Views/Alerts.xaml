@@ -6,11 +6,50 @@
              mc:Ignorable="d"
              x:Class="ButekoGOAPP.Views.Alerts"
              BackgroundImageSource="background">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#A0141F"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Alerts!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="listViewAlerts" ItemsSource="{Binding ListAlerts}" RowHeight="70" SelectedItem="{Binding SelectedAlerts, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="5">
+                                <Frame Padding="10" BorderColor="Gray">
+                                    <StackLayout>
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="15"></RowDefinition>
+                                                    <RowDefinition Height="15"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="45"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Text="{Binding Icon}" FontSize="24" Grid.RowSpan="2" Grid.Column="0" VerticalTextAlignment="Center" Style="{x:StaticResource BaseStyle}">
+                                                    <Label.FontFamily>
+                                                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"></OnPlatform>
+                                                    </Label.FontFamily>
+                                                </Label>
+                                                <Label Text="{Binding TitleAlert}" Grid.Row="0" Grid.Column="1" Style="{x:StaticResource BaseStyle}"></Label>
+                                                <Label Text="{Binding DiscriptionAlert}" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" Style="{x:StaticResource BaseStyle}"></Label>
+                                                <Label Text="{Binding PointsAlert, StringFormat='+{0}pts'}" Grid.RowSpan="2" Grid.Column="2" Style="{x:StaticResource BaseStyle}"></Label>
+                                            </Grid>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
