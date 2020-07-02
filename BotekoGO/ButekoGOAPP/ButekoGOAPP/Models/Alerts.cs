@@ -10,5 +10,6 @@ namespace ButekoGOAPP.Models
         public string TitleAlert { get; set; }
         public string  DiscriptionAlert { get; set; }
         public int PointsAlert { get; set; }
+        public bool IsVisibleContent { get; set; }        
     }
 }

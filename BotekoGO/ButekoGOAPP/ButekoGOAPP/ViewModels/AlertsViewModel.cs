@@ -17,10 +17,12 @@ namespace ButekoGOAPP.ViewModels
             Task.Run(async () => await this.GetAlerts());
         }
 
-        public ObservableCollection<Models.Alerts> ListAlerts { get; private set; }
+        public ObservableCollection<Models.Alerts> ListAlerts { get; private set; }        
 
         public async Task GetAlerts()
         {
+            IsBusy = true;
+
             var lstAlerts = new ObservableCollection<Models.Alerts>();
 
             for (int i = 0; i < 5; i++)
@@ -30,7 +32,8 @@ namespace ButekoGOAPP.ViewModels
                     Icon = ((char)0xf02c).ToString(),
                     TitleAlert = "Novo Cupom:",
                     DiscriptionAlert = "Check-in realizado no Buteko GO",
-                    PointsAlert = 25
+                    PointsAlert = 25,
+                    IsVisibleContent = false
                 });
             }
 
@@ -38,7 +41,9 @@ namespace ButekoGOAPP.ViewModels
 
             this.ListAlerts = lstAlerts;
             OnPropertyChanged(nameof(this.ListAlerts));
-        }
+
+            IsBusy = false;
+        }        
 
         private Models.Alerts selectedAlerts;
 
@@ -50,9 +55,8 @@ namespace ButekoGOAPP.ViewModels
                 if (value == null)
                     return;
 
-                selectedAlerts = value;
-                OnPropertyChanged(nameof(SelectedAlerts));
-
+                selectedAlerts = value;                
+                OnPropertyChanged();                
                 //criar o message.
             }
         }
