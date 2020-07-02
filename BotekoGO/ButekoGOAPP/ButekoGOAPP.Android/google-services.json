@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1060809096342",
+    "firebase_url": "https://butekogo.firebaseio.com",
+    "project_id": "butekogo",
+    "storage_bucket": "butekogo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060809096342:android:11b2e935d3ff7dec1996b7",
+        "android_client_info": {
+          "package_name": "com.companyname.butekogoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060809096342-o5br2ik6sm9hai9is07n589kuqlt19kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlGmA9qm7u6iqKPdMTRfGJ8Hct_XElurY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060809096342-o5br2ik6sm9hai9is07n589kuqlt19kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

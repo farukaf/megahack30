@@ -32,7 +32,7 @@ namespace ButekoGOAPP
         }
 
         protected override void OnStart()
-        {
+        {            
             MessagingCenter.Subscribe<Models.Login>(this, "LoginSuccess", (x) =>
             {
                 MainPage = new AppShell();
