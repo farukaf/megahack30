@@ -9,6 +9,7 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Color x:Key="Vermelho">#A0141F</Color>
             <Style x:Key="BaseStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="#A0141F"></Setter>
             </Style>
@@ -17,7 +18,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                <ListView x:Name="listViewAlerts" ItemsSource="{Binding ListAlerts}" SelectedItem="{Binding SelectedAlerts}" HasUnevenRows="True" CachingStrategy="RecycleElement">
+                <ListView x:Name="listViewAlerts" ItemsSource="{Binding ListAlerts}" SelectedItem="{Binding SelectedAlerts}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -52,7 +53,7 @@
                 </ListView>
             </StackLayout>
             <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" Opacity="0.5">
-                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="#A0141F"></ActivityIndicator>
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{x:StaticResource Vermelho}"></ActivityIndicator>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

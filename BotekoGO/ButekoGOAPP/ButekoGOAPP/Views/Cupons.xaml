@@ -3,15 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:qr="clr-namespace:Xam.Forms;assembly=Xam.Forms.QRCode"
              mc:Ignorable="d"
              x:Class="ButekoGOAPP.Views.Cupons"
              BackgroundImageSource="background"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Vermelho">#A0141F</Color>
+            <Color x:Key="Amarelo">#FECC15</Color>
+            <Style x:Key="BaseStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#A0141F"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Cupons!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ListView x:Name="listViewCupons" ItemsSource="{Binding ListCupons}" SelectedItem="{Binding SelectedCupons}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView Padding="5">
+                                    <Frame BorderColor="Gray">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Icon}" FontSize="24" Grid.Column="0" HorizontalOptions="Center" Style="{x:StaticResource BaseStyle}">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"></OnPlatform>
+                                                </Label.FontFamily>
+                                            </Label>
+                                            <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"  Style="{x:StaticResource BaseStyle}" FontAttributes="Bold" FontSize="Medium"></Label>
+                                            <Label Text="{Binding Message}" Grid.Row="1" Grid.ColumnSpan="2" VerticalTextAlignment="Start" Style="{x:StaticResource BaseStyle}"></Label>
+                                            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" IsVisible="{Binding IsVisibleQRCode}">
+                                                <qr:QRCode Content="{Binding QrCode}" Color="{x:StaticResource Vermelho}" Level="H" WidthRequest="180" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Center"></qr:QRCode>
+                                                <Label Text="{Binding CupomNro}" TextColor="{x:StaticResource Vermelho}" HorizontalOptions="Center"></Label>
+                                            </StackLayout>
+                                            <Button x:Name="ButtonShow" Text="Ver Butekos" BackgroundColor="{x:StaticResource Vermelho}" TextColor="{x:StaticResource Amarelo}" HorizontalOptions="Center" Grid.Row="3" Grid.ColumnSpan="2"></Button>
+                                            <Label Text="{Binding Validate, StringFormat='Válido até {0:dd/MM/yyyy}'}" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="End" TextColor="{x:StaticResource Vermelho}" FontSize="Micro"></Label>
+                                        </Grid>
+                                    </Frame>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" Opacity="0.5">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{x:StaticResource Vermelho}"></ActivityIndicator>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

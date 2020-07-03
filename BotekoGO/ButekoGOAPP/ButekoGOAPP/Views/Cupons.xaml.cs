@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ButekoGOAPP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,16 @@ namespace ButekoGOAPP.Views
         public Cupons()
         {
             InitializeComponent();
-        }
+            this.BindingContext = new CuponsViewModel(this);
+
+            this.listViewCupons.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
+            {
+                if (e.SelectedItem == null) return;
+
+                Task.Delay(500);
+
+                if (sender is ListView lv) lv.SelectedItem = null;
+            };
+        }        
     }
 }

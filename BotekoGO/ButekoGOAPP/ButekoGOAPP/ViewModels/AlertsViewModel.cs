@@ -14,6 +14,8 @@ namespace ButekoGOAPP.ViewModels
         {
             this.View = view;
 
+            IsBusy = false;
+
             Task.Run(async () => await this.GetAlerts());
         }
 

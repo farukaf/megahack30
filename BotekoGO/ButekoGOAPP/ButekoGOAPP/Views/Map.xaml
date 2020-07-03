@@ -8,9 +8,7 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Maps!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Test"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
