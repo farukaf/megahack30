@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android;
 
 namespace ButekoGOAPP.Droid
 {
@@ -29,7 +30,30 @@ namespace ButekoGOAPP.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            if (requestCode == RequestLocationId)
+            {
+                if ((grantResults.Length == 1) && (grantResults[0] == (int)Permission.Granted))
+                { } //Permission granted
+                else
+                { } //Permission Denied
+
+            }
+            else
+                base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        const int RequestLocationId = 0;
+        readonly string[] LocationPermissions = { Manifest.Permission.AccessCoarseLocation, Manifest.Permission.AccessFineLocation };
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            if ((int)Build.VERSION.SdkInt >= 23)
+            {
+                if (CheckSelfPermission(Manifest.Permission.AccessFineLocation) != Permission.Granted)
+                    RequestPermissions(LocationPermissions, RequestLocationId);
+            }
         }
     }
 }

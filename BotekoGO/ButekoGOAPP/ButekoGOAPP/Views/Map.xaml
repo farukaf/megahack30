@@ -7,7 +7,28 @@
              mc:Ignorable="d"
              x:Class="ButekoGOAPP.Views.Map"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Vermelho">#A0141F</Color>
+            <Style x:Key="BaseStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#A0141F"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <maps:Map x:Name="map"></maps:Map>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <maps:Map x:Name="map" IsShowingUser="True" ItemsSource="{Binding ListPins, Mode=TwoWay}">
+                    <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <maps:Pin Position="{Binding Position}" Address="{Binding Address}" Label="{Binding Description}" />
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
+                </maps:Map>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" Opacity="0.5">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{x:StaticResource Vermelho}"></ActivityIndicator>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
