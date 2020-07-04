@@ -30,15 +30,15 @@ namespace ButekoGOAPP.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
-            if (requestCode == RequestLocationId)
-            {
-                if ((grantResults.Length == 1) && (grantResults[0] == (int)Permission.Granted))
-                { } //Permission granted
-                else
-                { } //Permission Denied
+            //if (requestCode == RequestLocationId)
+            //{
+            //    if ((grantResults.Length == 1) && (grantResults[0] == (int)Permission.Granted))
+            //    { } //Permission granted
+            //    else
+            //    { } //Permission Denied
 
-            }
-            else
+            //}
+            //else
                 base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 

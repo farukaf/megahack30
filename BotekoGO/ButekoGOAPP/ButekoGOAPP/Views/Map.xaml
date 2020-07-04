@@ -18,12 +18,12 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                <maps:Map x:Name="map" IsShowingUser="True" ItemsSource="{Binding ListPins, Mode=TwoWay}">
-                    <maps:Map.ItemTemplate>
+                <maps:Map x:Name="map" IsShowingUser="True" MoveToLastRegionOnLayoutChange="True">
+                    <!--<maps:Map.ItemTemplate>
                         <DataTemplate>
                             <maps:Pin Position="{Binding Position}" Address="{Binding Address}" Label="{Binding Description}" />
                         </DataTemplate>
-                    </maps:Map.ItemTemplate>
+                    </maps:Map.ItemTemplate>-->
                 </maps:Map>
             </StackLayout>
             <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" Opacity="0.5">

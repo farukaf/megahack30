@@ -5,22 +5,22 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms.Maps;
 
 namespace ButekoGOAPP.ViewModels
 {
     public class MapViewModel : ViewModels.BaseViewModel
     {
-        Map View;
-        public MapViewModel(Map view)
+        Views.Map View;
+        public MapViewModel(Views.Map view)
         {
             this.View = view;
 
             IsBusy = false;
 
             Task.Run(async () => await this.GetPins());
-        }        
-
-        public ObservableCollection<Models.Map> ListPins { get; private set; }
+        }      
 
         public async Task GetPins()
         {
@@ -35,26 +35,22 @@ namespace ButekoGOAPP.ViewModels
             //Setting the zoom on current position
             var zoomLevel = 14; //Level between 1 and 18
             var latlongdegress = 360 / (Math.Pow(2, zoomLevel));
-            map.MoveToRegion(new Xamarin.Forms.Maps.MapSpan(map.VisibleRegion.Center, latlongdegress, latlongdegress));
-            
-            var lstPins = new ObservableCollection<Models.Map>();
+            map.MoveToRegion(new Xamarin.Forms.Maps.MapSpan(map.VisibleRegion.Center, latlongdegress, latlongdegress));            
 
             for (int i = 0; i < 8; i++)
             {
-                lstPins.Add(new Models.Map()
+                map.Pins.Add(new Pin()
                 {
-                    Latitude = position.Latitude + (3 * i),
-                    Longitude = position.Longitude + (4 * i),
-                    Description = $"Buteko {i}"
+                    Address = $"Pin {i}",
+                    Label = $"Buteko {i}",
+                    Position = RandomPosition.Next(new Position(position.Latitude, position.Longitude), 0.001, 0.001),
+                    Type = PinType.Place
                 });
-            }
+            }            
 
-            await Task.Delay(500);
-
-            this.ListPins = lstPins;
-            OnPropertyChanged(nameof(this.ListPins));
+            await Task.Delay(500);           
 
             IsBusy = false;
-        }
+        }        
     }
 }
