@@ -25,26 +25,30 @@
                 <Image Source="Avatar"></Image>
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                     <Label Text="Rank:" TextColor="{x:StaticResource Vermelho}" VerticalOptions="End"></Label>
-                    <Label Text="27º" TextColor="{x:StaticResource Vermelho}" FontSize="Medium" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding Rank}" TextColor="{x:StaticResource Vermelho}" FontSize="Medium" FontAttributes="Bold"></Label>
                 </StackLayout>
             </StackLayout>
             <Frame Padding="5,5" Grid.Row="1">
                 <StackLayout>
                     <Label Text="Minhas marcas" FontSize="Micro" TextColor="{x:StaticResource Vermelho}" VerticalOptions="Start"></Label>
                     <StackLayout Orientation="Horizontal">
-                        <ListView>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <ContentView>
-                                            <ContentView.Content>
-                                                <Image Source="{Binding Logo}"></Image>
-                                            </ContentView.Content>
-                                        </ContentView>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding ListMarcas}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout HeightRequest="80" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Padding="5">
+                                                <Image Source="{Binding Marca}" HeightRequest="50" WidthRequest="50"></Image>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                                    <Label Text="{Binding Points}" TextColor="{x:StaticResource Vermelho}"></Label>
+                                                    <Label Text="pts" TextColor="{x:StaticResource Vermelho}"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </ScrollView>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -57,9 +61,32 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="30"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                        <Label Text="Nome:" TextColor="{x:StaticResource Vermelho}" VerticalOptions="End"></Label>
+                        <Label Text="{Binding Nome}" TextColor="{x:StaticResource Vermelho}" VerticalOptions="Start" FontAttributes="Bold" FontSize="Medium"></Label>
+                    </StackLayout>
+                    <Image Source="LogoPoints" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"></Image>
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center">
+                        <Label Text="{Binding Points}" TextColor="{x:StaticResource Vermelho}" FontSize="Medium" FontAttributes="Bold"></Label>
+                        <Label Text="Pts" TextColor="{x:StaticResource Vermelho}" FontSize="Medium" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                    <Label Text="fidelidade" TextColor="{x:StaticResource Vermelho}" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"></Label>
                 </Grid>
+            </Frame>
+            <Frame Padding="5,5" Grid.Row="3">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="True" OnColor="{x:StaticResource Vermelho}" ThumbColor="{x:StaticResource Vermelho}"></Switch>
+                        <Label Text="Quero receber cupons" TextColor="{x:StaticResource Vermelho}" FontSize="Medium"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Avise-me em um raio de:" TextColor="{x:StaticResource Vermelho}"></Label>
+                        <Picker Title="Selecione um raio" ItemsSource="{Binding ListDistancias}" TextColor="{x:StaticResource Vermelho}"></Picker>
+                    </StackLayout>
+                </StackLayout>
             </Frame>
         </Grid>
     </ContentPage.Content>
