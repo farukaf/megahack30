@@ -7,11 +7,60 @@
              x:Class="ButekoGOAPP.Views.Perfil"
              BackgroundImageSource="background"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Vermelho">#A0141F</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Perfil!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <StackLayout HorizontalOptions="Center" Grid.Row="0">
+                <Image Source="Avatar"></Image>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label Text="Rank:" TextColor="{x:StaticResource Vermelho}" VerticalOptions="End"></Label>
+                    <Label Text="27º" TextColor="{x:StaticResource Vermelho}" FontSize="Medium" FontAttributes="Bold"></Label>
+                </StackLayout>
+            </StackLayout>
+            <Frame Padding="5,5" Grid.Row="1">
+                <StackLayout>
+                    <Label Text="Minhas marcas" FontSize="Micro" TextColor="{x:StaticResource Vermelho}" VerticalOptions="Start"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <ListView>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <Image Source="{Binding Logo}"></Image>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame Padding="5,5" Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
