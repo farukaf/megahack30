@@ -2,9 +2,9 @@
 
 Buteko Go!
 
-Mediante as informações apresentadas anteriormente é com muito prazer que apresentamos o ButekoGo, a rede social de consumo!
+É com muito prazer que apresentamos o ButekoGo, a rede social de consumo!
 
-A nova forma de se divertir com os amigos e conhecer lugares novos!
+A nova forma de se divertir com os amigos e conhecer novos lugares!
 
 Como nosso público-alvo gosta de ser autêntico e se expressar conforme suas preferências, poderá personalizar sua conta no ButekoGo com a temática baseada na cerveja preferida e outras bebidas não alcoólicas do catálogo da Ambev, como Gatorade e Lipton Ice Tea.
 
