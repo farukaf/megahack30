@@ -1,6 +1,4 @@
-# Buteko Go!
-
-Buteko Go!
+# ButekoGo
 
 É com muito prazer que apresentamos o ButekoGo, a rede social de consumo!
 
