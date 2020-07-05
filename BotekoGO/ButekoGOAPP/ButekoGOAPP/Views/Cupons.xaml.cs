@@ -12,10 +12,12 @@ namespace ButekoGOAPP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cupons : ContentPage
     {
+        private CuponsViewModel ViewModel;
+
         public Cupons()
         {
             InitializeComponent();
-            this.BindingContext = new CuponsViewModel(this);
+            this.BindingContext = ViewModel = new CuponsViewModel(this);
 
             this.listViewCupons.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
             {
@@ -23,8 +25,17 @@ namespace ButekoGOAPP.Views
 
                 Task.Delay(500);
 
-                if (sender is ListView lv) lv.SelectedItem = null;
+                if (ViewModel.ListCupons != null && ViewModel.ListCupons.Any())
+                {
+                    foreach (var cupom in ViewModel.ListCupons)
+                    {
+                        cupom.IsVisibleQRCode = false;
+                    }
+                }
+
+                ViewModel.SelectedCupons.IsVisibleQRCode = true;
             };
-        }        
+        }
+
     }
 }

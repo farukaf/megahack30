@@ -20,17 +20,17 @@ namespace ButekoGOAPP.ViewModels
             Task.Run(async () => await this.GetCupons());
         }
 
-        public ObservableCollection<Models.Cupons> ListCupons { get; private set; }
+        public ObservableCollection<CupomItemViewModel> ListCupons { get; private set; }
 
         private async Task GetCupons()
         {
             IsBusy = true;
 
-            var lstCupons = new ObservableCollection<Models.Cupons>();
+            var lstCupons = new ObservableCollection<CupomItemViewModel>();
 
             for (int i = 0; i < 5; i++)
             {
-                lstCupons.Add(new Models.Cupons()
+                lstCupons.Add(new CupomItemViewModel()
                 {
                     Icon = ((char)0xf02c).ToString(),
                     Title = "Cupom de R$10",
@@ -49,9 +49,9 @@ namespace ButekoGOAPP.ViewModels
             IsBusy = false;
         }
 
-        private Models.Cupons selectedCupom;
+        private CupomItemViewModel selectedCupom;
 
-        public Models.Cupons SelectedCupons
+        public CupomItemViewModel SelectedCupons
         {
             get { return selectedCupom; }
             set 

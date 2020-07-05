@@ -46,11 +46,12 @@
                                             </Label>
                                             <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"  Style="{x:StaticResource BaseStyle}" FontAttributes="Bold" FontSize="Medium"></Label>
                                             <Label Text="{Binding Message}" Grid.Row="1" Grid.ColumnSpan="2" VerticalTextAlignment="Start" Style="{x:StaticResource BaseStyle}"></Label>
+                                           
+                                            <Button x:Name="ButtonShow" Text="Ver Butekos" BackgroundColor="{x:StaticResource Vermelho}" TextColor="{x:StaticResource Amarelo}" HorizontalOptions="Center" Grid.Row="3" Grid.ColumnSpan="2"></Button>
                                             <StackLayout Grid.Row="2" Grid.ColumnSpan="2" IsVisible="{Binding IsVisibleQRCode}">
                                                 <qr:QRCode Content="{Binding QrCode}" Color="{x:StaticResource Vermelho}" Level="H" WidthRequest="180" HeightRequest="180" VerticalOptions="Center" HorizontalOptions="Center"></qr:QRCode>
                                                 <Label Text="{Binding CupomNro}" TextColor="{x:StaticResource Vermelho}" HorizontalOptions="Center"></Label>
                                             </StackLayout>
-                                            <Button x:Name="ButtonShow" Text="Ver Butekos" BackgroundColor="{x:StaticResource Vermelho}" TextColor="{x:StaticResource Amarelo}" HorizontalOptions="Center" Grid.Row="3" Grid.ColumnSpan="2"></Button>
                                             <Label Text="{Binding Validate, StringFormat='Válido até {0:dd/MM/yyyy}'}" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="End" TextColor="{x:StaticResource Vermelho}" FontSize="Micro"></Label>
                                         </Grid>
                                     </Frame>

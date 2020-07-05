@@ -18,6 +18,7 @@ namespace ButekoGOAPP.Views
         {
             InitializeComponent();
             this.BindingContext = new PerfilViewModel(this);
+
         }
     }
 }

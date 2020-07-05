@@ -28,7 +28,6 @@
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-
     <!-- Your Pages -->
     <TabBar>
         <Tab Title="Perfil" Icon="IconPerfil.png">
