@@ -34,6 +34,7 @@ namespace ButekoGOAPP.Views
                 }
 
                 ViewModel.SelectedCupons.IsVisibleQRCode = true;
+                if (sender is ListView lv) lv.SelectedItem = null;
             };
         }
 
